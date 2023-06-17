@@ -1,10 +1,7 @@
-def kadane(arr):
-    max_so_far = 0
-    max_final = -float("inf")
-    for i in arr:
-        max_so_far += i
-        if max_so_far > max_final:
-            max_final = max_so_far
-        if max_so_far < 0:
-            max_so_far = 0
-    return max_final
+def kadane(nums):
+    current_max = nums[0]
+    max_so_far = nums[0]
+    for num in nums[1:]:
+        current_max = max(current_max + num, num)
+        max_so_far = max(current_max, max_so_far)
+    return max_so_far
